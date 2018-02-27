@@ -1,0 +1,39 @@
+{\rtf1\ansi\ansicpg936\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+Read me:\
+Team member: \
+                        Willson Wang\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0                         Shuyu Qin\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0                         Haoming Xu\
+\
+What we did: Using the data of people survival or dead from Titanic sank to find the relationship         between peoples\'92 background (such as age ,gender , ticket class and so on) and his or her survival possibilities.\
+\
+Method: We use peoples\'92  ticket class, sex, age, number of siblings , number of parents or children and passenger fare through logistic regression and perceptron learning  to get the weight vector , then use cross validation to compare these two method which is better for training the data.\
+ \
+How to run: we have generated four code program: crossvalidation.m   class_error.m   logistic_reg.m   and   perceptron_learning.m\
+We just need to put the data matrix in crossvalidation() function, then we can get two errors from logistic regression and perceptron learning.\
+We can see that :  n=10, max iteration=10000, eta=0.01,\
+logerr =0.3028\
+pererr =0.2423\
+\
+When we change the max iteration to 100000\
+logerr = 0.2465\
+pererr = 0.2507\
+  \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 When we change the max iteration to 200000\
+logerr =0.2437\
+pererr =0.2479\
+\
+When we change the max iteration to 300000\
+logerr =0.2437\
+pererr = 0.2423\
+}
