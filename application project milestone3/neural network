@@ -1,0 +1,33 @@
+from sklearn.neural_network import MLPClassifier
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn import datasets
+import random
+
+def cross_validation(testX, trainX, testY, trainY):
+    clf = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(5, 2), random_state=1)
+    clf.fit(trainX,trainY)
+    predicted_result=clf.predict(testX)
+    return 1.0*(1.0*sum(np.array(predicted_result) != np.array(testY)) / len(testY))
+
+
+csv_data=pd.read_csv("titanic.csv")
+X=(csv_data.drop(["PassengerId",'Survived'],axis=1).as_matrix())
+y=np.array(csv_data["Survived"])
+
+fold_num = 10
+rand_list = list(range(len(y)))
+random.shuffle(rand_list)
+
+data_groups = [rand_list[i:i + int(len(rand_list) / fold_num)] for i in range(0, len(rand_list), int(len(rand_list) / fold_num))]
+cross_validation_error = 0
+for n in range(fold_num):
+    testX = (X[data_groups[n], :])
+    trainX = np.delete(X, data_groups[n], axis=0)
+    testY = y[data_groups[n]]
+    trainY = np.delete(y, data_groups[n])
+    cross_validation_error += cross_validation(testX, trainX, testY, trainY)
+
+cross_validation_error = cross_validation_error / fold_num
+print 1.0-cross_validation_error
